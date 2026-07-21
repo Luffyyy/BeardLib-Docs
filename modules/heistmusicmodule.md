@@ -27,7 +27,7 @@ The name of the module you use as the meta of the module definition is 'HeistMus
 | id        | String | The ID of the track. This has to be unique |
 | volume    | Float  | The volume of the music (from 0 to 1)      |
 
-#### `<event name source>`
+##### `<event name source>`
 
 | Parameter                       | Type    | Description                                                                                                                   |
 | ------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -35,11 +35,11 @@ The name of the module you use as the meta of the module definition is 'HeistMus
 | source                          | String  | The path to the .ogg file that the track should play in the event                                                             |
 | start\_source                   | String  | Optional path to sound to play before playing `source`                                                                        |
 | volume                          | Float   | Volume of this specific music event                                                                                           |
-| allow\_switch                   | Bool    | Wether a random track is selected each loop or only once per event if multiple tracks are available (See `<track>` node)      |
-| weight                          | Integer | Base weight of any tracks added via `<track>` nodes (See `<track>` node)                                                      |
+| allow\_switch                   | Bool    | Whether a new track is selected after every loop (default) or only once per event if multiple `<track>` nodes are available   |
+| weight                          | Integer | Base weight of any tracks added via `<track>` nodes                                                                           |
 | play_order                      | String  | Order in which multiple tracks are played, possible values are `random` (default), `shuffle`, `sequence` and `loop`           |
 
-**\<track source>**
+###### `<track source>`
 
 `<track>` nodes can be placed as children of `<event>` nodes to specify multiple tracks for a single event.\
 They inherit any values set on the `<event>` node if not specified in the `<track>` node itself.
@@ -50,6 +50,17 @@ They inherit any values set on the `<event>` node if not specified in the `<trac
 | start\_source | String  | Optional path to sound to play before playing `source`            |
 | volume        | Float   | Volume of this specific music track                               |
 | weight        | Integer | Weight of this track for being chosen randomly                    |
+
+Tracks will be selected according to the play_order set on the parent `<event>` node.  
+When `allow_switch` is true (the default if not specified), track selection happens whenever a track is done playing a single loop, when it's false, track selection only happens once per event.  
+
+| Mode          | Description                                                                                                    |
+| ------------- | -------------------------------------------------------------------------------------------------------------- |
+| random        | Selects a random track according to their weight each time                                                     |
+| shuffle       | Selects a random track according to their weight each time but avoids duplicates until every track played once |
+| sequence      | Selects tracks in the order they are defined and keeps playing the last one when it reaches the end            |
+| loop          | Selects tracks in the order they are defined and starts again from the beginning when it reaches the end       |
+
 
 ### Example
 
@@ -78,7 +89,7 @@ For this you would simply set up an event like this
 
 The weight defines how likely a track is going to be selected whenever this event plays. In the example above this would mean the regular assault track is 10 times more likely to play than the lyric version.
 
-#### Template
+### Template
 
 Download template here: [https://modworkshop.net/mydownloads.php?action=view\_down\&did=21651](https://modworkshop.net/mydownloads.php?action=view\_down\&did=21651)
 
