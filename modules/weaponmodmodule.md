@@ -8,7 +8,7 @@ This page is missing some information.
 
 The module is inherited from [ItemModuleBase](https://luffyyy.gitbook.io/beardlib/modules/modulebase#itemmodulebase). So base parameters can be found there.
 
-This modules let's you add weapon aprts.
+This module lets you add weapon parts.
 
 ### Module name
 
@@ -25,7 +25,7 @@ The name of the module you use as the meta of the module definition is 'WeaponMo
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | id | String | The ID of the part |
-| based\_on | String | An ID of an existing weapon part you want to base your part on. Full list here [https://modworkshop.net/wiki.php?action=view&id=3](https://modworkshop.net/wiki.php?action=view&id=3) |
+| based\_on | String | An ID of an existing weapon part you want to base your part on. Full list [here](https://wiki.modworkshop.net/books/payday-2-mod-creation/page/weapon-mods) |
 | type | String | The type of the part. Can be:  `ammo`, `barrel`, `barrel_ext`, `barrel_lock`, `bayonet`, `bipod`, `body`, `bolt`, `bonus`, `custom`, `cylinder`, `drag_handle`, `ejector`, `ejector_l`, `ejector_r`, `ejectorpin`, `extra`, `firepin`, `foregrip`, `foregrip_ext`, `gadget`, `grip`, `hammer`, `left_hammer`, `left_slug`, `lock_arm`, `lower_body`, `lower_receiver`, `lower_reciever`, `magazine`, `meter_l`, `meter_r`, `rail`, `right_hammer`, `right_slug`, `safety`, `sight`, `sight_special`, `slide`, `stock`, `stock_adapter`, `switch`, `swiwel_1`, `swiwel_2`, `underbarrel`, `upper_body`, `upper_receiver`, `upper_reciever`, `vertical_grip` |
 | sub\_type | String | The sub type of the part. Like a silencer is a barrel extension \(barrel\_ext\) and a supressor. The types: `ammo`, `ammo_custom`, `ammo_dragons_breath`, `ammo_explosive`, `ammo_piercing`, `ammo_poison`, `ammo_slug`, `autofire`, `bipod`, `bonus_stats`, `bonus_team`, `flashlight`, `grenade_launcher`, `laser`, `second_sight`, `silencer`, `singlefire` |
 | ver | Number | The version of the module. Version 2 should be used now. It does the following: Defaults pcs to an empty table \(use hidden=true to hide parts!\) and makes guess\_unit default to true |
